@@ -1,12 +1,11 @@
-from os import environ
-
+from bici_reg.app import app
 from bici_reg.db import db
 
 
 def main():
-    bcpasswd = environ['BCPASSWD']
-    db.create_engine(f'postgresql://bici:{bcpasswd}@localhost/bici', {})
-    db.create_all()
+    db.init_app(app)
+    with app.app_context():
+        db.create_all()
 
 
 if __name__ == '__main__':
