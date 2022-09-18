@@ -9,3 +9,4 @@ pip install pip --upgrade
 pip install flask
 pip install sqlalchemy
 pip install flask-sqlalchemy
+pip install psycopg2-binary

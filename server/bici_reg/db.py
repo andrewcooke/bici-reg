@@ -11,7 +11,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.Text, unique=True, nullable=False)
     email = db.Column(db.Text, unique=True, nullable=False)
-    created = db.Column(db.Datetime(timezone=True), default=func.now())
+    created = db.Column(db.DateTime(timezone=True), default=func.now())
 
 
 class Bicycle(db.Model):
@@ -23,8 +23,8 @@ class Bicycle(db.Model):
     user = db.relationship('User', backref=db.backref('bicycles', lazy=True))
     serial = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text)
-    created = db.Column(db.Datetime(timezone=True), default=func.now())
-    edited = db.Column(db.Datetime(timezone=True), default=func.now(), onupdate=func.now())
+    created = db.Column(db.DateTime(timezone=True), default=func.now())
+    edited = db.Column(db.DateTime(timezone=True), default=func.now(), onupdate=func.now())
 
 
 class Sighting(db.Model):
@@ -32,4 +32,4 @@ class Sighting(db.Model):
     __tablename__ = 'sighting'
     id = db.Column(db.Integer, primary_key=True)
     bicycle_id = db.Column(db.Integer, db.ForeignKey('bicycle.id'), nullable=False)
-    created = db.Column(db.Datetime(timezone=True), default=func.now())
+    created = db.Column(db.DateTime(timezone=True), default=func.now())
