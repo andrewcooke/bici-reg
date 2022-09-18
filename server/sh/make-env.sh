@@ -8,3 +8,4 @@ source venv/bin/activate
 pip install pip --upgrade
 pip install flask
 pip install sqlalchemy
+pip install flask-sqlalchemy
