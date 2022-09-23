@@ -1,10 +1,12 @@
 from flask import render_template_string
+from flask_mailman import Mail
 from flask_security import auth_required, hash_password, SQLAlchemyUserDatastore, Security
 
 from bici_reg.app import app
 from bici_reg.db import db, User, Role
 
 
+mail = Mail(app)
 db.init_app(app)
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 app.security = Security(app, user_datastore)

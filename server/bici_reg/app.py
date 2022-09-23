@@ -19,4 +19,7 @@ app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     'pool_pre_ping': True,
 }
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+app.config['MAIL_SERVER'] = 'localhost'
+app.config['SECURITY_REGISTERABLE'] = True
+app.config['SECURITY_EMAIL_SENDER'] = 'andrew@acooke.org'  # CHANGE!!!
+app.config['SECURITY_CONFIRMABLE'] = True
