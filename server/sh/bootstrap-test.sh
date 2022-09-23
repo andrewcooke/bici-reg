@@ -1,8 +1,7 @@
 #!/bin/bash
 
 cd "${BASH_SOURCE%/*}/" || exit 1
-./assert-pgpasswd.sh || exit 2
-./assert-bcpasswd.sh || exit 3
+./assert-env.sh || exit 2
 ./start-postgres.sh
 echo "waiting for postgres to start"
 sleep 10

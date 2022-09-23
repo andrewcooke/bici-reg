@@ -1,8 +1,7 @@
 #!/bin/bash
 
 cd "${BASH_SOURCE%/*}/" || exit 1
-./assert-pgpasswd.sh || exit 2
-./assert-bcpasswd.sh || exit 3
+./assert-env.sh || exit 2
 PGPASSWORD=$PGPASSWD psql -U postgres -h localhost -c "create user bici with password '$BCPASSWD'"
 PGPASSWORD=$PGPASSWD psql -U postgres -h localhost -c "create database bici with owner bici"
 PGPASSWORD=$PGPASSWD psql -U postgres -h localhost bici -c "create schema bici"
