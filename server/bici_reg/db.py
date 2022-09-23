@@ -1,17 +1,27 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
+from flask_security.models import fsqla_v3
 
 db = SQLAlchemy()
+fsqla_v3.FsModels.set_db_info(db)
 
 
-class User(db.Model):
+class Role(db.Model, fsqla_v3.FsRoleMixin):
+    pass
 
-    __tablename__ = 'user'
 
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.Text, unique=True, nullable=False)
-    email = db.Column(db.Text, unique=True, nullable=False)
-    created = db.Column(db.DateTime(timezone=True), default=func.now())
+class User(db.Model, fsqla_v3.FsUserMixin):
+    pass
+
+
+# class User(db.Model):
+#
+#     __tablename__ = 'user'
+#
+#     id = db.Column(db.Integer, primary_key=True)
+#     username = db.Column(db.Text, unique=True, nullable=False)
+#     email = db.Column(db.Text, unique=True, nullable=False)
+#     created = db.Column(db.DateTime(timezone=True), default=func.now())
 
 
 class Bicycle(db.Model):

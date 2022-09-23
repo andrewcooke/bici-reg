@@ -10,4 +10,4 @@ pip install flask
 pip install sqlalchemy
 pip install flask-sqlalchemy
 pip install psycopg2-binary
-pip install flask-login
+pip install flask-security-too[common]
