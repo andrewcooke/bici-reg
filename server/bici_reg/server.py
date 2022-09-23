@@ -4,10 +4,8 @@ from flask_security import auth_required, hash_password, SQLAlchemyUserDatastore
 from bici_reg.app import app
 from bici_reg.db import db, User, Role
 
-# from bici_reg.login import login_manager
 
 db.init_app(app)
-# login_manager.init_app(app)
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 app.security = Security(app, user_datastore)
 

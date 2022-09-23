@@ -14,16 +14,6 @@ class User(db.Model, fsqla_v3.FsUserMixin):
     pass
 
 
-# class User(db.Model):
-#
-#     __tablename__ = 'user'
-#
-#     id = db.Column(db.Integer, primary_key=True)
-#     username = db.Column(db.Text, unique=True, nullable=False)
-#     email = db.Column(db.Text, unique=True, nullable=False)
-#     created = db.Column(db.DateTime(timezone=True), default=func.now())
-
-
 class Bicycle(db.Model):
 
     __tablename__ = 'bicycle'
